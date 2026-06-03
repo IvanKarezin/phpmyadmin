@@ -13,8 +13,8 @@
 ### Выполнение тестов:
 
 unit - `docker compose exec -it php vendor/bin/phpunit`
-    * Для успешного прохождения тестов может потребоваться vpn для доступа к https://www.phpmyadmin.net/ и прочим ресурсам
-    * Некоторые тесты нестабильны и выполняются не с первой попытки
+* Для успешного прохождения тестов может потребоваться vpn для доступа к https://www.phpmyadmin.net/ и прочим ресурсам
+* Некоторые тесты нестабильны и выполняются не с первой попытки
 
 
 e2e - `docker compose exec -it php vendor/bin/phpunit test/selenium`
