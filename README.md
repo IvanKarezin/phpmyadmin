@@ -1,6 +1,6 @@
-#PHPMyAdmin
+# PHPMyAdmin
 
-###Разворачивание в docker-compose локально:
+### Разворачивание в docker-compose локально:
 
 1) Заполнить .env
 2) Создать phpunit.xml в корне проекта, скопировав содержимое phpunit.xml.dist
@@ -10,7 +10,7 @@
 6) `docker compose run --rm composer install --ignore-platform-req=ext-mysqli`
 7) Проверить в браузере - должна открыться страница с локином - вводим значения PMA_USER и MYSQL_ROOT_PASSWORD
 
-###Выполнение тестов:
+### Выполнение тестов:
 
 unit - `docker compose exec -it php vendor/bin/phpunit`
     * Для успешного прохождения тестов может потребоваться vpn для доступа к https://www.phpmyadmin.net/ и прочим ресурсам
