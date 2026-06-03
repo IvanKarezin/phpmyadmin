@@ -28,6 +28,13 @@
         <log type="coverage-clover" target="build/logs/clover.xml" />
         <log type="coverage-xml" target="build/logs/coverage-xml"/>
         <log type="junit" target="build/logs/junit.xml" />
+        <env name="TESTSUITE_USER" value="root"/>
+        <env name="TESTSUITE_PASSWORD" value="password"/>
+        <env name="TESTSUITE_DATABASE_PREFIX" value="test"/>
+        <env name="TESTSUITE_URL" value="http://web:8080/phpmyadmin/" />
+        <env name="TESTSUITE_SELENIUM_HOST" value="selenium" />
+        <env name="TESTSUITE_SELENIUM_PORT" value="4444" />
+        <env name="PMA_TEST_URL" value="http://web:8080" />
     </logging>
 
     <filter>
