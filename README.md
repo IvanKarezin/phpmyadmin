@@ -18,11 +18,11 @@ unit - `docker compose exec -it php vendor/bin/phpunit`
 
 
 e2e - `docker compose exec -it php vendor/bin/phpunit test/selenium`
-    * Веб интерфейс селениума доступен по порту 4444
-    * Скриншоты упавших e2e тестов лежат в директории `build/selenium`
-    * Некоторые тесты нестабильны и выполняются не с первой попытки
-    * Ряд тестов не проходят успешно в stable и master ветках:
-        * PhpMyAdmin\Tests\Selenium\Database\ProceduresTest::testAddProcedure
-        * PhpMyAdmin\Tests\Selenium\ImportTest::testDbImport
-        * PhpMyAdmin\Tests\Selenium\ImportTest::testTableImport
-        * PhpMyAdmin\Tests\Selenium\ImportTest::testServerImport
+* Веб интерфейс селениума доступен по порту 4444
+* Скриншоты упавших e2e тестов лежат в директории `build/selenium`
+* Некоторые тесты нестабильны и выполняются не с первой попытки
+* Ряд тестов не проходят успешно в stable и master ветках:
+  * PhpMyAdmin\Tests\Selenium\Database\ProceduresTest::testAddProcedure
+  * PhpMyAdmin\Tests\Selenium\ImportTest::testDbImport
+  * PhpMyAdmin\Tests\Selenium\ImportTest::testTableImport
+  * PhpMyAdmin\Tests\Selenium\ImportTest::testServerImport
