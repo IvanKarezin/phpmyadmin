@@ -1,52 +1,28 @@
-phpMyAdmin - Readme
-===================
+#PHPMyAdmin
 
-Version 5.2.3
+###Разворачивание в docker-compose локально:
 
-A web interface for MySQL and MariaDB.
+1) Заполнить .env
+2) Создать phpunit.xml в корне проекта, скопировав содержимое phpunit.xml.dist
+3) В phpunit.xml в секции php заполнить переменные TESTSUITE_USER и TESTSUITE_PASSWORD в соответсвии с теми, которые задали в .env для MYSQL_ROOT_PASSWORD и PMA_USER
+4) `docker compose build`
+5) `docker compose up -d`
+6) `docker compose run --rm composer install --ignore-platform-req=ext-mysqli`
+7) Проверить в браузере - должна открыться страница с локином - вводим значения PMA_USER и MYSQL_ROOT_PASSWORD
 
-https://www.phpmyadmin.net/
+###Выполнение тестов:
 
-Summary
--------
+unit - `docker compose exec -it php vendor/bin/phpunit`
+    * Для успешного прохождения тестов может потребоваться vpn для доступа к https://www.phpmyadmin.net/ и прочим ресурсам
+    * Некоторые тесты нестабильны и выполняются не с первой попытки
 
-phpMyAdmin is intended to handle the administration of MySQL over the web.
-For a summary of features, list of requirements, and installation instructions,
-please see the documentation in the ./doc/ folder or at https://docs.phpmyadmin.net/
 
-Copyright
----------
-
-Copyright © 1998 onwards -- the phpMyAdmin team
-
-Certain libraries are copyrighted by their respective authors;
-see the full copyright list for details.
-
-For full copyright information, please see ./doc/copyright.rst
-
-License
--------
-
-This program is free software; you can redistribute it and/or modify it under
-the terms of the GNU General Public License version 2, as published by the
-Free Software Foundation.
-
-This program is distributed in the hope that it will be useful, but WITHOUT
-ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
-details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
-Licensing of current contributions
-----------------------------------
-
-Beginning on 2013-12-01, new contributions to this codebase are all licensed
-under terms compatible with GPLv2-or-later.  phpMyAdmin is currently
-transitioning older code to GPLv2-or-later, but work is not yet complete.
-
-Enjoy!
-------
-
-The phpMyAdmin team
+e2e - `docker compose exec -it php vendor/bin/phpunit test/selenium`
+    * Веб интерфейс селениума доступен по порту 4444
+    * Скриншоты упавших e2e тестов лежат в директории `build/selenium`
+    * Некоторые тесты нестабильны и выполняются не с первой попытки
+    * Ряд тестов не проходят успешно в stable и master ветках:
+        * PhpMyAdmin\Tests\Selenium\Database\ProceduresTest::testAddProcedure
+        * PhpMyAdmin\Tests\Selenium\ImportTest::testDbImport
+        * PhpMyAdmin\Tests\Selenium\ImportTest::testTableImport
+        * PhpMyAdmin\Tests\Selenium\ImportTest::testServerImport
